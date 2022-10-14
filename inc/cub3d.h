@@ -6,7 +6,7 @@
 /*   By: pos31d0n <pos31d0n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:23:17 by pos31d0n          #+#    #+#             */
-/*   Updated: 2022/10/10 14:28:20 by pos31d0n         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:40:48 by pos31d0n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,22 @@
 # include <fcntl.h>
 # include <stdio.h>
 
+# define WINDOW_W 70
+# define WINDOW_H 50
+
+# define ESC_KEY 'ESC'
+# define ARROW_UP ''
+# define KEY_W 'W'
+# define ARROW_DOWN ''
+# define KEY_S 'S'
+# define ARROW_LEFT ''
+# define ARROW_RIGHT ''
+# define KEY_A 'A'
+# define KEY_D 'D'
+# define KEY_Q 'Q'
+# define
+# define
+
 typedef struct t_game
 {
 	int				i;
@@ -33,17 +49,18 @@ typedef struct t_game
 	t_img			img;
 	t_ray			ray;
 	float			**map;
-	t_win			win;
+	char			win;
+	void			*mlx;
 	t_txt			*txt;
-	t_map_l			map_l;
-	t_all_map		all_map;
+	int				map_l;
+	char			all_map;
 	int				txt_idx;
-	t_trim_map		trim_map;
+	char			trim_map;
 	char			*path_nswe;
 	int				only_map_h;
-	t_minimap_on	minimap_on;
-	t_color_floor	color_floor;
-	t_color_ceiling	color_ceiling;
+	int				minimap_on;
+	int				color_floor;
+	int				color_ceiling;
 }					t_game;
 
 typedef struct t_ray
@@ -152,8 +169,8 @@ void	start_game(t_game *game);
 void	init_struct(t_game *game);
 void	check_args(int argc, char **argv, t_game *game);
 
-void	height_map(t_game game, char argv[1]);
-void	read_map(t_game game, char argv[1]);
+void	height_map(t_game game, char *argv);
+void	read_map(t_game game, char *argv);
 
 float	ft_ray(t_game *game, float v);
 
