@@ -6,13 +6,14 @@
 /*   By: pos31d0n <pos31d0n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:23:17 by pos31d0n          #+#    #+#             */
-/*   Updated: 2022/10/14 13:40:48 by pos31d0n         ###   ########.fr       */
+/*   Updated: 2022/10/18 11:16:20 by pos31d0n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include "../gnl/get_next_line.h"
 # include "../libft/libft.h"
 # include "../mlx/mlx.h"
 # include <unistd.h>
@@ -25,18 +26,26 @@
 # define WINDOW_W 70
 # define WINDOW_H 50
 
-# define ESC_KEY 'ESC'
-# define ARROW_UP ''
-# define KEY_W 'W'
-# define ARROW_DOWN ''
-# define KEY_S 'S'
-# define ARROW_LEFT ''
-# define ARROW_RIGHT ''
-# define KEY_A 'A'
-# define KEY_D 'D'
-# define KEY_Q 'Q'
-# define
-# define
+# define LINEAR_STEP // ?
+# define ON_KEYDOWN // ?
+# define KeyPressMask // ?
+# define ANGEL_STEP // ?
+# define ON_DESTROY // ?
+# define NoEventMask // ?
+# define FOV // ?
+
+# define ESC_KEY 53
+
+# define ARROW_UP 126
+# define ARROW_DOWN 125
+# define ARROW_LEFT 123
+# define ARROW_RIGHT 124
+
+# define KEY_W 13
+# define KEY_S 1
+# define KEY_A 0
+# define KEY_D 2
+# define KEY_Q 12
 
 typedef struct t_game
 {
@@ -61,6 +70,8 @@ typedef struct t_game
 	int				minimap_on;
 	int				color_floor;
 	int				color_ceiling;
+	t_npc_img		npc_img;
+	t_wall_img		wall_img;
 }					t_game;
 
 typedef struct t_ray
@@ -78,6 +89,11 @@ typedef struct t_ray
 	int	hor_y;
 	int	hor_dist;
 }		t_ray;
+
+typedef struct t_npc_img
+{
+	char	img;
+}			t_npc_img;
 
 typedef struct t_img
 {
@@ -111,7 +127,7 @@ typedef struct t_win
 
 typedef struct t_txt
 {
-	int		hight;
+	int		height;
 	t_game	game;
 	int		img;
 	int		width;
@@ -161,17 +177,37 @@ typedef struct t_only_map_h
 	int		hz;
 }			t_only_map_h;
 
-void	ft_redraw(t_game *game);
-void	ft_line(t_game *game, int w, float disk);
+typedef struct t_wall_img
+{
+	char	img;
+}			t_wall_img;
 
+//draw.c
+void	ft_line(t_game *game, int w, float disk);
+void	ft_redraw(t_game *game);
+
+//game.c
+void	find_position(t_game *game);
 void	start_game(t_game *game);
 
-void	init_struct(t_game *game);
+//main.c
 void	check_args(int argc, char **argv, t_game *game);
+void	init_struct(t_game *game);
 
+//map.c
 void	height_map(t_game game, char *argv);
 void	read_map(t_game game, char *argv);
 
+//moving_key_destroy.c
+void	ft_move(t_game *game, int direction);
+int		ft_key(int keycode, t_game *game);
+int		ft_destroy_exit(t_game *game);
+
+//ray.c
 float	ft_ray(t_game *game, float v);
+void	ft_ray_casting(t_game *game);
+
+//utils.c
+int		ft_sign(int d);
 
 #endif

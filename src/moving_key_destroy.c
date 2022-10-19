@@ -6,7 +6,7 @@
 /*   By: pos31d0n <pos31d0n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:53:02 by pos31d0n          #+#    #+#             */
-/*   Updated: 2022/10/08 12:27:07 by pos31d0n         ###   ########.fr       */
+/*   Updated: 2022/10/18 11:06:12 by pos31d0n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_move(t_game *game, int direction)
 
 	angel = game->view + direction * M_PI / 2;
 	dx = LINEAR_STEP * cos(angel);
-	dy = LINEAR_SPEP * sin(angel);
+	dy = LINEAR_STEP * sin(angel);
 	dist = ft_ray(game, ft_sign(dy) * M_PI / 2);
 	if (dist * dist < dy * dy)
 		dy = 0.0f;

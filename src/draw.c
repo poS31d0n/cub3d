@@ -6,7 +6,7 @@
 /*   By: pos31d0n <pos31d0n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:29:37 by pos31d0n          #+#    #+#             */
-/*   Updated: 2022/10/08 12:28:39 by pos31d0n         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:52:25 by pos31d0n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_line(t_game *game, int w, float disk)
 	while (h-- > 0)
 	{
 		*dst = *(src +((int)src_f) * game->txt[game->txt_idx].width);
+		// Ниже как проверка на прорисовку, там каждая стена имеет свой цвет
 		//*dst = game->txt_idx * 255 + (1 - game->txt_idx) * (255 << 8);
 		dst += WINDOW_W;
 		src_f += d_shift;
@@ -63,7 +64,7 @@ void	ft_redraw(t_game *game)
 	ft_ray_casting(game);
 	mlx_put_image_to_image(game->mlx, game->win, game->img.img, 0, 0);
 	mlx_destroy_img(game->mlx, game->img.img);
-	//
+	// Тут похоже для бонусов, миникарты
 	if (game->minimap_on)
 		print_bonus_map_pictures(game);
 }
