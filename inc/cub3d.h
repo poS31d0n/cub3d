@@ -6,7 +6,7 @@
 /*   By: pos31d0n <pos31d0n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 15:23:17 by pos31d0n          #+#    #+#             */
-/*   Updated: 2022/10/18 11:16:20 by pos31d0n         ###   ########.fr       */
+/*   Updated: 2022/10/27 17:30:19 by pos31d0n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define WINDOW_W 70
-# define WINDOW_H 50
+# define WINDOW_W 100
+# define WINDOW_H 100
 
 # define LINEAR_STEP // ?
 # define ON_KEYDOWN // ?
@@ -32,7 +32,7 @@
 # define ANGEL_STEP // ?
 # define ON_DESTROY // ?
 # define NoEventMask // ?
-# define FOV // ?
+# define FOV 66
 
 # define ESC_KEY 53
 
