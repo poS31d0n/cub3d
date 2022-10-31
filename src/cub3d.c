@@ -11,6 +11,22 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
+t_vector validation(char **argv, t_vector vector)
+{
+	char **map;
+
+	map = map_reader(argv[1]);
+	if (!map)
+		{
+			ft_free_chartable(map);
+			errormap(vector, map);
+		}
+	vector = valid_objects(map, vector);
+	vector = valid_colors(map, vector);
+	vector = map_finder(map, vector);
+	ft_free_chartable(map);
+	return (vector);
+}
 
 void	check_args(int argc, char **argv, t_game *game)
 {
@@ -49,12 +65,20 @@ void	init_struct(t_game *game)
 int	main(int argc, char **argv)
 {
 	t_game	*game;
+	t_vector vector;
 
+	vector.pos = 0;
+	vector = ft_init(vector);
+	if (argc != 2)
+		return (0);
+	if (ft_compare(argv[1], ".cub") != 1)
+		exit(1);
+	vector = validation(argv, vector);
 	game = malloc(sizeof(t_game));
 	init_struct(game);
 	check_args(argc, argv, game);
-	height_map(game, argv[1]);
-	read_map(game, argv[1]);
+	height_map(*game, argv[1]);
+	read_map(*game, argv[1]);
 	start_game(game);
 	return (0);
 }
