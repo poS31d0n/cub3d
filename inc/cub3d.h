@@ -47,49 +47,6 @@
 # define KEY_D 2
 # define KEY_Q 12
 
-typedef struct t_game
-{
-	int				i;
-	char			*hz;
-	int				pos_x;
-	int				pos_y;
-	float			txt_w;
-	float			view;
-	t_img			img;
-	t_ray			ray;
-	float			**map;
-	char			win;
-	void			*mlx;
-	t_txt			*txt;
-	int				map_l;
-	char			all_map;
-	int				txt_idx;
-	char			trim_map;
-	char			*path_nswe;
-	int				only_map_h;
-	int				minimap_on;
-	int				color_floor;
-	int				color_ceiling;
-	t_npc_img		npc_img;
-	t_wall_img		wall_img;
-}					t_game;
-
-typedef struct t_ray
-{
-	int	dx;
-	int	dy;
-	int	sx;
-	int	sy;
-	int	vert_w;
-	int	vert_x;
-	int	vert_y;
-	int	vert_dist;
-	int	hor_w;
-	int	hor_x;
-	int	hor_y;
-	int	hor_dist;
-}		t_ray;
-
 typedef struct t_npc_img
 {
 	char	img;
@@ -128,7 +85,6 @@ typedef struct t_win
 typedef struct t_txt
 {
 	int		height;
-	t_game	game;
 	int		img;
 	int		width;
 	int		line_length;
@@ -146,11 +102,6 @@ typedef struct t_path_nswe
 {
 	int		hz;
 }			t_path_nswe;
-
-typedef struct t_map
-{
-	int		hz;
-}			t_map;
 
 typedef struct t_trim_map
 {
@@ -171,11 +122,6 @@ typedef struct t_map_l
 {
 	int		hz;
 }			t_map_l;
-
-typedef struct t_only_map_h
-{
-	int		hz;
-}			t_only_map_h;
 
 typedef struct t_wall_img
 {
@@ -206,6 +152,49 @@ typedef struct s_map
 	int			west;
 	int			east;
 }				t_map;
+
+typedef struct t_ray
+{
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+	int	vert_w;
+	int	vert_x;
+	int	vert_y;
+	int	vert_dist;
+	int	hor_w;
+	int	hor_x;
+	int	hor_y;
+	int	hor_dist;
+}		t_ray;
+
+typedef struct t_game
+{
+	int				i;
+	char			*hz;
+	int				pos_x;
+	int				pos_y;
+	float			txt_w;
+	float			view;
+	t_img			img;
+	t_ray			ray;
+	float			**map;
+	char			win;
+	void			*mlx;
+	t_txt			*txt;
+	int				map_l;
+	char			all_map;
+	int				txt_idx;
+	char			trim_map;
+	char			*path_nswe;
+	int				only_map_h;
+	int				minimap_on;
+	int				color_floor;
+	int				color_ceiling;
+	t_npc_img		npc_img;
+	t_wall_img		wall_img;
+}					t_game;
 
 int ft_compare(char *str, char *str2);
 char	**map_reader(char *file);

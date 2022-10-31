@@ -20,7 +20,7 @@ void	find_position(t_game *game)
 	while (++i < 4)
 	{
 		game->txt[i].img = mlx_xpm_file_to_image(game->mlx,
-				game->path_nswe[i], game->txt[i].width, & game->txt[i].hight);
+				game->path_nswe[i], game->txt[i].width, & game->txt[i].height);
 		if (!game->txt[i].img)
 		{
 			ft_putstr_fd("Error\nCann't read file '", 2);

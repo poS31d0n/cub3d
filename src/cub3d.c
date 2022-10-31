@@ -33,12 +33,12 @@ void	check_args(int argc, char **argv, t_game *game)
 	char	*tmp;
 
 	if (!game)
-		error_exit(game, 4);
+		exit(1);
 	if (argc != 2)
-		error_exit(game, 1);
+		exit(1);
 	tmp = ft_strrchr(argv[1], '.');
 	if (ft_strncmp(tmp, ".cub\0", 5))
-		error_exit(game, 5);
+		exit(1);
 }
 
 void	init_struct(t_game *game)
@@ -52,14 +52,14 @@ void	init_struct(t_game *game)
 	i = -1;
 	while (++i < 4)
 	{
-		game->path_nswe[i] = NULL;
-		game->txt[i].img = NULL;
+		game->path_nswe[i] = 0;
+		game->txt[i].img = 0;
 	}
 	game->minimap_on = 0;
-	game->all_map = NULL;
-	game->trim_map = NULL;
+	game->all_map = 0;
+	game->trim_map = 0;
 	game->map = NULL;
-	game->win = NULL;
+	game->win = 0;
 }
 
 int	main(int argc, char **argv)

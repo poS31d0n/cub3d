@@ -1,4 +1,4 @@
-#include "inc/cub3d.h"
+#include "cub3d.h"
 
 void	freetmp(int h, char *tmp, t_vector vector, char ** map)
 {

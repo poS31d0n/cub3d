@@ -1,4 +1,4 @@
-#include "inc/cub3d.h"
+#include "cub3d.h"
 
 int ft_compare(char *str, char *str2)
 {

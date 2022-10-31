@@ -1,4 +1,4 @@
-#include "inc/cub3d.h"
+#include "cub3d.h"
 
 t_vector newmapp(char **map, int i, int tmp, int tmp2, t_vector vector)
 {

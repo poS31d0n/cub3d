@@ -1,4 +1,4 @@
-#include "inc/cub3d.h"
+#include "cub3d.h"
 
 void	ft_free_chartable(char **map)
 {

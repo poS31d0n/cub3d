@@ -1,4 +1,4 @@
-#include "inc/cub3d.h"
+#include "cub3d.h"
 
 char *objects(char *str, char**map, int i)
 {

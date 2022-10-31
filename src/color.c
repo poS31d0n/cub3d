@@ -1,4 +1,4 @@
-#include "inc/cub3d.h"
+#include "cub3d.h"
 
 char *make_tmp(int i, int j, char **map)
 {

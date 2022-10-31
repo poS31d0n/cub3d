@@ -1,4 +1,4 @@
-#include "inc/cub3d.h"
+#include "cub3d.h"
 
 int val(t_vector vector, int tmp, int bool)
 {
